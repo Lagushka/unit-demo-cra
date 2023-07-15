@@ -30,3 +30,5 @@ npm run e2e
 ```sh
 npm test
 ```
+
+For test commit and pr only!!
