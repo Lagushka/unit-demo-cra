@@ -20,7 +20,7 @@ jobs:
       user_name: 'github-actions[bot]'
       user_email: 'github-actions[bot]@users.noreply.github.com'
       GH_TOKEN: ${{ secrets.ACTIONS_DEPLOY_ACCESS_TOKEN }}
-      repository: ${{ github.repository }}
+      repository: ${{ github.event.repository.name }}
 
   publish:
     runs-on: ubuntu-latest
