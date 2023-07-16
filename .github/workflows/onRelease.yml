@@ -19,7 +19,7 @@ jobs:
         id: date
         run: echo "::set-output name=date::$(date +'%Y-%m-%d')"
       - name: Create issue
-        -id: issue_text
+        id: issue_text
         run: |
           echo "::set-output name=issue_text::$(cat << EOF
           #Release ${GITHUB_REF#refs/*/} by ${{ github.event.actor }}
