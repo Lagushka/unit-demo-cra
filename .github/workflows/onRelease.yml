@@ -22,7 +22,7 @@ jobs:
         id: issue_text
         run: |
           ISSUE_TEXT=$(cat << EOF
-          # Release ${GITHUB_REF#refs/*/} by ${{ github.event.actor }}
+          # Release ${GITHUB_REF#refs/*/} by ${{ github.actor }}
 
           ## Date:  ${{ steps.date.outputs.date }}
 
