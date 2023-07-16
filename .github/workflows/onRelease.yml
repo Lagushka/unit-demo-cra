@@ -18,14 +18,14 @@ jobs:
       - name: Get date
         id: date
         run: echo "::set-output name=date::$(date +'%Y-%m-%d')"
-      - run: ISSUE_TEXT=$(cat << EOF
-        # Release ${GITHUB_REF#refs/*/} by ${{ github.event.actor }}
+      # - run: ISSUE_TEXT=$(cat << EOF
+      #   # Release ${GITHUB_REF#refs/*/} by ${{ github.event.actor }}
 
-        ## Date:  ${{ steps.date.outputs.date }}
+      #   ## Date:  ${{ steps.date.outputs.date }}
 
-        You can see deployment history [here](https://github.com/Lagushka/unit-demo-cra/deployments/activity_log?environment=github-pages)
-        EOF
-        )
+      #   You can see deployment history [here](https://github.com/Lagushka/unit-demo-cra/deployments/activity_log?environment=github-pages)
+      #   EOF
+      #   )
       - run: gh issue create --title ${GITHUB_REF#refs/*/} --label "RELEASE" --body "# Test"
     env: 
       user_name: 'github-actions[bot]'
