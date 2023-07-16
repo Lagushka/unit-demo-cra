@@ -29,7 +29,7 @@ jobs:
           You can see deployment history [here](https://github.com/Lagushka/unit-demo-cra/deployments/activity_log?environment=github-pages)
           EOF
           )
-          gh issue create --title ${GITHUB_REF#refs/*/} --label "RELEASE" --body "${{ steps.issue_text.outputs.issue_text }}"
+          gh issue create --title ${GITHUB_REF#refs/*/} --label "RELEASE" --body "$ISSUE_TEXT"
     env: 
       user_name: 'github-actions[bot]'
       user_email: 'github-actions[bot]@users.noreply.github.com'
