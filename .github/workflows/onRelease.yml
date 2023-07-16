@@ -10,16 +10,17 @@ on:
 jobs:
   createIssue:
     runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+      - run: git config --global user.name $user_name
+      - run: git config --global user.email $user_email
+      - run: gh issue create --title ${GITHUB_REF#refs/*/} --label "RELEASE" --body "#Test" --repo $repository
     env: 
       user_name: 'github-actions[bot]'
       user_email: 'github-actions[bot]@users.noreply.github.com'
       github_token: ${{ secrets.ACTIONS_DEPLOY_ACCESS_TOKEN }}
       repository: ${{ github.repository }}
-    steps:
-      - run: git config --global user.name $user_name
-      - run: git config --global user.email $user_email
-      - run: git remote set-url origin https://${github_token}@github.com/${repository}
-      - run: gh issue create --title "${GITHUB_REF#refs/*/}" --label "RELEASE" --body "#Test"
 
   publish:
     runs-on: ubuntu-latest
