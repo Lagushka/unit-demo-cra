@@ -18,7 +18,7 @@ jobs:
       - name: Get date
         id: date
         run: echo "::set-output name=date::$(date +'%Y-%m-%d')"
-      - run: | 
+      - run: |
         ISSUE_TEXT=$(cat << EOF
         #Release ${GITHUB_REF#refs/*/} by ${{ github.event.actor }}
 
