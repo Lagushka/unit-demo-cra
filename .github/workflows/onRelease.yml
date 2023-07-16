@@ -15,12 +15,12 @@ jobs:
       - uses: actions/setup-node@v3
       - run: git config --global user.name $user_name
       - run: git config --global user.email $user_email
-      - run: gh issue create --title ${GITHUB_REF#refs/*/} --label "RELEASE" --body "#Test" --repo $repository
+      - run: gh issue create --title ${GITHUB_REF#refs/*/} --label "RELEASE" --body "#Test" --repo https://${github_token}@github.com/${repository}
     env: 
       user_name: 'github-actions[bot]'
       user_email: 'github-actions[bot]@users.noreply.github.com'
       GH_TOKEN: ${{ secrets.ACTIONS_DEPLOY_ACCESS_TOKEN }}
-      repository: ${{ $GITHUB_REPOSITORY }}
+      repository: ${{ github.event.repository.name }}
 
   publish:
     runs-on: ubuntu-latest
