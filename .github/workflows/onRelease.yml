@@ -22,9 +22,9 @@ jobs:
         id: issue_text
         run: |
           echo "::set-output name=issue_text::$(cat << EOF
-          #Release ${GITHUB_REF#refs/*/} by ${{ github.event.actor }}
+          # Release ${{ GITHUB_REF#refs/*/ }} by ${{ github.event.actor }}
 
-          ##Date:  ${{ steps.date.outputs.date }}
+          ## Date:  ${{ steps.date.outputs.date }}
 
           You can see deployment history [here](https://github.com/Lagushka/unit-demo-cra/deployments/activity_log?environment=github-pages)
           EOF
