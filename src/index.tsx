@@ -2,11 +2,14 @@ import { createRoot } from "react-dom/client";
 import { Provider } from "react-redux";
 import { HashRouter } from "react-router-dom";
 import { Application } from "./Application";
-import { initStore } from "./store";
+import {initStore} from "./store";
 
 import "./index.css";
 
 const container = document.getElementById("root");
+
+
+
 
 if (container) {
   const root = createRoot(container);
@@ -15,8 +18,8 @@ if (container) {
 
   root.render(
     <HashRouter>
-      <Provider store={store}>
-        <Application />
+      <Provider store={store2}>
+             <Application />
       </Provider>
     </HashRouter>
   );
